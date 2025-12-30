@@ -1,1 +1,25 @@
+# Media Crime Broadcasts: Methodological Notes
 
+So, the first goal of my project was to identify broadcast news that discuss crime across different networks. I downloaded transcripts from Nexis Uni for three major cable networks: Fox News, CNN, and MSNBC. The reasoning behind this choice lies in the well-documented ideological bias of these networks, which allowed me to select outlets clearly positioned on the right and left of the political spectrum.
+
+I downloaded transcripts using the following two specifications:  
+1. The news had to be aired between 2008 and 2024 (both years included).  
+2. Each transcript had to contain either the word “crime” or any crime-related keyword* other than “crime.”
+
+\*murder OR homicide OR assault OR shooting OR stabbing OR theft OR burglary OR robbery OR arson OR vandalism OR drug OR narcotics OR fraud OR embezzlement OR rape OR molestation OR arrest OR conviction OR investigation OR suspect OR victim
+
+Transcripts containing the word “crime” tend to be relatively clean, as the term is usually used to describe actual criminal activity. In contrast, crime-related keywords introduce much more noise. As one might expect, such keywords can be used metaphorically (e.g., “you can kill it on stage” in comedy, or being “robbed” of success). Thus, while using additional keywords increases coverage, it also substantially increases noise in the dataset. That brings the need for clear text classification.
+
+First, I cleaned the text by removing unnecessary elements such as reporter names, timestamps, transcript descriptions, and other formalities that could affect classification. In addition, broadcast segments often cover multiple unrelated topics within a single transcript. To isolate crime-relevant content, I retained only sentences containing at least one keyword, along with the immediately preceding and following sentences. This produced a more concise, and strictly crime-focused text.
+
+Next, I excluded transcripts that were not relevant for the analysis. I removed sources that did not align with the purpose of the study, such as CNN Wire, which serves as a content repository for other outlets. I also excluded sources that are not cable broadcasts (e.g., CNN.com and CNNMoney.com), since the analysis focuses specifically on televised news.
+
+I then discarded transcripts in Spanish. Because this classification is not always accurate in Nexis Uni, I used the `langdetect` library to identify Spanish-language content. I also removed transcripts classified as international or mixed. The number of mixed transcripts was small, so I do not expect this step to meaningfully affect the results.
+
+After completing the cleaning process, I proceeded to the classification stage. I randomly selected 600 transcripts from each network: 300 containing the keyword “crime” and 300 containing other crime-related keywords. I manually classified each transcript into one or more categories. Because a transcript can contain multiple topics, the categories are not mutually exclusive. I then randomly selected an additional 300 transcripts per network for validation (I manually classified 900 transcripts for each network, making 2,700 in total).
+
+The choice of categories was informed by reading the first 100 transcripts from each news source. As a result, categories may differ slightly across networks, reflecting differences in editorial focus. All networks, however, include an “international” category. This was necessary because Nexis Uni’s built-in classifications are not always accurate, and domestic segments sometimes reference international crime. In addition, transcripts containing keywords other than “crime” are often much shorter than those explicitly mentioning crime. To reduce noise, I removed very short transcripts (approximately fewer than 20 words).
+
+For classification, I used the following models: logistic regression with TF-IDF features and with embeddings, random forest with TF-IDF features and with embeddings, a convolutional neural network (CNN) implemented in Keras, and a fine-tuned BERT-style model. For international classification, the logistic regression model using embeddings achieved the highest F1 score across validation procedures. I therefore used this model to identify and remove international news before proceeding with further topic classification on the cleaned dataset.
+
+For further topic classification, I repeated the same procedure. I trained, tested, and validated several text classifiers on the transcripts. This was done separately for each news network to obtain more sensitive results, as networks use distinct wording and political framing. For example, CNN tends to publish strongly negative coverage of Russian interference in the 2016 Trump campaign, whereas Fox News more often presents defensive narratives on the same topic. For the vast majority of classified topics, the random forest model with TF-IDF input outperformed the other models, as shown in the tables below. Therefore, RF was used for further topic classification.
