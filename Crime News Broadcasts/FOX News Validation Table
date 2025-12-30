@@ -1,1 +1,121 @@
+\begin{longtable}{llcccc}
+\caption{Model evaluation metrics for additional outcomes.} \\
+\hline
+\textbf{Outcome} & \textbf{Model} & \textbf{Best Cutoff} & \textbf{Best F1} & \textbf{Precision} & \textbf{Recall} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{Outcome} & \textbf{Model} & \textbf{Best Cutoff} & \textbf{Best F1} & \textbf{Precision} & \textbf{Recall} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+% ---------------- Democrat ----------------
+\multirow{6}{*}{Democrat}
+  & CNN Keras                & 0.0411 & 0.2366 & 0.1833 & 0.3333 \\
+  & Logit + TF-IDF           & 0.0842 & 0.5806 & 0.6207 & 0.5455 \\
+  & Logit + Emb              & 0.0901 & 0.4681 & 0.3607 & 0.6667 \\
+  & Random Forest + TF-IDF   & 0.1000 & 0.4935 & 0.4318 & 0.5758 \\
+  & Random Forest + Emb      & 0.1140 & 0.3238 & 0.2361 & 0.5152 \\
+  & BERT                     & 0.0022 & 0.3611 & 0.3333 & 0.3939 \\
+\hline
+
+% ---------------- Riots ----------------
+\multirow{6}{*}{Riots}
+  & CNN Keras                & 0.0332 & 0.1111 & 0.0645 & 0.4000 \\
+  & Logit + TF-IDF           & 0.0792 & 0.4167 & 0.5556 & 0.3333 \\
+  & Logit + Emb              & 0.1007 & 0.4444 & 0.5000 & 0.4000 \\
+  & Random Forest + TF-IDF   & 0.1060 & 0.6207 & 0.6429 & 0.6000 \\
+  & Random Forest + Emb      & 0.1620 & 0.3333 & 0.4444 & 0.2667 \\
+  & BERT                     & 0.0010 & 0.1176 & 0.5000 & 0.0667 \\
+\hline
+
+% ---------------- Cop assault ----------------
+\multirow{6}{*}{Cop\_assault}
+  & CNN Keras                & 0.1228 & 0.2105 & 0.2857 & 0.1667 \\
+  & Logit + TF-IDF           & 0.0717 & 0.3902 & 0.2759 & 0.6667 \\
+  & Logit + Emb              & 0.1248 & 0.3333 & 0.3333 & 0.3333 \\
+  & Random Forest + TF-IDF   & 0.1360 & 0.3529 & 0.6000 & 0.2500 \\
+  & Random Forest + Emb      & 0.1520 & 0.2143 & 0.1875 & 0.2500 \\
+  & BERT                     & 0.0009 & 0.2188 & 0.1346 & 0.5833 \\
+\hline
+
+% ---------------- Abuse ----------------
+\multirow{6}{*}{Abuse}
+  & CNN Keras                & 0.0783 & 0.2041 & 0.1471 & 0.3333 \\
+  & Logit + TF-IDF           & 0.0914 & 0.5000 & 0.4474 & 0.5667 \\
+  & Logit + Emb              & 0.1340 & 0.5574 & 0.5484 & 0.5667 \\
+  & Random Forest + TF-IDF   & 0.1820 & 0.3913 & 0.5625 & 0.3000 \\
+  & Random Forest + Emb      & 0.1960 & 0.5238 & 0.9167 & 0.3667 \\
+  & BERT                     & 0.0027 & 0.3860 & 0.4074 & 0.3667 \\
+\hline
+
+% ---------------- Mass ----------------
+\multirow{6}{*}{Mass}
+  & CNN Keras                & 0.1314 & 0.4000 & 0.3846 & 0.4167 \\
+  & Logit + TF-IDF           & 0.0769 & 0.6207 & 0.5294 & 0.7500 \\
+  & Logit + Emb              & 0.1529 & 0.4762 & 0.5556 & 0.4167 \\
+  & Random Forest + TF-IDF   & 0.1440 & 0.7368 & 1.0000 & 0.5833 \\
+  & Random Forest + Emb      & 0.1540 & 0.2941 & 0.2273 & 0.4167 \\
+  & BERT                     & 0.0008 & 0.3478 & 0.3636 & 0.3333 \\
+\hline
+
+% ---------------- Dem policies ----------------
+\multirow{6}{*}{Dem\_policies}
+  & CNN Keras                & 0.1718 & 0.4319 & 0.3333 & 0.6133 \\
+  & Logit + TF-IDF           & 0.1743 & 0.6790 & 0.6322 & 0.7333 \\
+  & Logit + Emb              & 0.1162 & 0.5377 & 0.4161 & 0.7600 \\
+  & Random Forest + TF-IDF   & 0.1740 & 0.6941 & 0.6211 & 0.7867 \\
+  & Random Forest + Emb      & 0.1920 & 0.5380 & 0.4792 & 0.6133 \\
+  & BERT                     & 0.0074 & 0.5584 & 0.4508 & 0.7333 \\
+\hline
+
+% ---------------- Immigration ----------------
+\multirow{6}{*}{Immigration}
+  & CNN Keras                & 0.0659 & 0.3546 & 0.2604 & 0.5556 \\
+  & Logit + TF-IDF           & 0.1310 & 0.7229 & 0.7895 & 0.6667 \\
+  & Logit + Emb              & 0.1461 & 0.6364 & 0.6512 & 0.6222 \\
+  & Random Forest + TF-IDF   & 0.1560 & 0.8409 & 0.8605 & 0.8222 \\
+  & Random Forest + Emb      & 0.2060 & 0.5600 & 0.7000 & 0.4667 \\
+  & BERT                     & 0.0013 & 0.4286 & 0.3962 & 0.4667 \\
+\hline
+
+% ---------------- Biden ----------------
+\multirow{6}{*}{Biden}
+  & CNN Keras                & 0.1220 & 0.2529 & 0.1667 & 0.5238 \\
+  & Logit + TF-IDF           & 0.1184 & 0.8085 & 0.7308 & 0.9048 \\
+  & Logit + Emb              & 0.1692 & 0.6000 & 0.6316 & 0.5714 \\
+  & Random Forest + TF-IDF   & 0.1760 & 0.8000 & 0.6897 & 0.9524 \\
+  & Random Forest + Emb      & 0.1960 & 0.5714 & 0.7143 & 0.4762 \\
+  & BERT                     & 0.0033 & 0.7222 & 0.8667 & 0.6190 \\
+\hline
+
+% ---------------- Trump ----------------
+\multirow{6}{*}{Trump}
+  & CNN Keras                & 0.0458 & 0.2353 & 0.2000 & 0.2857 \\
+  & Logit + TF-IDF           & 0.0956 & 0.6024 & 0.4545 & 0.8929 \\
+  & Logit + Emb              & 0.1516 & 0.5079 & 0.4571 & 0.5714 \\
+  & Random Forest + TF-IDF   & 0.1400 & 0.4918 & 0.4545 & 0.5357 \\
+  & Random Forest + Emb      & 0.1180 & 0.3366 & 0.2329 & 0.6071 \\
+  & BERT                     & 0.0002 & 0.3265 & 0.3810 & 0.2857 \\
+\hline
+
+  % ---------------- Crime ----------------
+\multirow{6}{*}{Crime}
+  & CNN Keras                & 0.4850 & 0.8108 & 0.8203 & 0.8015 \\
+  & Logit + TF-IDF           & 0.4497 & 0.8169 & 0.7582 & 0.8855 \\
+  & Logit + Emb              & 0.4326 & 0.7939 & 0.7939 & 0.7939 \\
+  & Random Forest + TF-IDF   & 0.5420 & 0.8178 & 0.8707 & 0.7710 \\
+  & Random Forest + Emb      & 0.4640 & 0.7645 & 0.7734 & 0.7557 \\
+  & BERT                     & 0.9970 & 0.7344 & 0.7520 & 0.7176 \\
+\hline
+
+
+\end{longtable}
 
